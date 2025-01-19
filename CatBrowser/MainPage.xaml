@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:CatBrowser.Model"
+             x:Class="CatBrowser.MainPage">
+    
+    <ScrollView
+        Padding="8"
+        >
+        <CollectionView ItemsSource="{Binding Cats}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:CatImage">
+                    <StackLayout
+                        Padding="16">
+                        <Border
+                        Stroke="Transparent"
+                        StrokeShape="RoundRectangle 16"
+                        Background="Gray"
+                        >
+                            <Grid Padding="16" 
+                                  RowSpacing="8"
+                                  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="44"/>
+                                    <RowDefinition Height="44"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border
+                                Stroke="Transparent"
+                                StrokeShape="RoundRectangle 12"
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                >
+                                    <Image
+                                    Source="{Binding Url}"
+                                    HorizontalOptions="FillAndExpand"
+                                    />
+                                </Border>
+                                <Label Text="{Binding Breeds[0].Name}" FontSize="32" Grid.Column="0" Grid.Row="1"/>
+                                <Label Text="{Binding Breeds[0].Description}" FontSize="16" Grid.ColumnSpan="2" Grid.Row="2" LineBreakMode="TailTruncation" MaxLines="2"/>
+                                <Label Text="{Binding Breeds[0].Origin}" FontSize="24" Grid.Column="1" Grid.Row="1"/>
+                            </Grid>
+                            <Border.Shadow>
+                                <Shadow
+                            Brush="Black"
+                            Offset="4, 4"
+                            Radius="12"
+                            Opacity="0.8"
+                            />
+                            </Border.Shadow>
+                        </Border>
+                    </StackLayout>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+</ContentPage>
+
