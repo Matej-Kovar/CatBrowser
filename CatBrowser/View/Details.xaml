@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatBrowser.View.Details"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}"
+             Title="Details">
+    <ScrollView>
+    <VerticalStackLayout>
+        <Grid Padding="16" 
+              RowSpacing="8"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="44"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Border
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 12"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                >
+                <Image
+                    Source="{Binding Url}"
+                    HorizontalOptions="FillAndExpand"
+                />
+                <Border.Shadow>
+                    <Shadow
+                Brush="Black"
+                Offset="4, 4"
+                Radius="12"
+                Opacity="0.4"
+                />
+                </Border.Shadow>
+            </Border>
+            <Label Text="{Binding Breeds[0].Name}" FontSize="32" Grid.Column="0" Grid.Row="1"/>
+            <Label Text="{Binding Breeds[0].Origin}" FontSize="24" Grid.Column="1" Grid.Row="1"/>
+            <Label Text="{Binding Breeds[0].Description}" FontSize="16" Grid.ColumnSpan="2" Grid.Row="2"/>
+        </Grid>
+        <Grid Padding="16" 
+              RowSpacing="8"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                <RowDefinition Height="22"/>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="22"/>
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.6*"/>
+            </Grid.ColumnDefinitions>
+                <Label Text="{Binding Breeds[0].Weight.Metric, StringFormat='Weight: {0}'}" FontSize="16" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].Temperament, StringFormat='Temperament: {0}'}" FontSize="16" Grid.RowSpan="2" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].LifeSpan, StringFormat='Life span: {0}'}" FontSize="16" Grid.Row="1" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].Adaptability, StringFormat='Adaptability: {0}'}" FontSize="16" Grid.Row="2" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].AffectionLevel, StringFormat='Affection Level: {0}'}" FontSize="16" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].ChildFriendly, StringFormat='Child Friendly: {0}'}" FontSize="16" Grid.Row="3" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].DogFriendly, StringFormat='Dog Friendly: {0}'}" FontSize="16" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].EnergyLevel, StringFormat='Energy Level: {0}'}" FontSize="16" Grid.Row="4" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].Grooming, StringFormat='Grooming: {0}'}" FontSize="16" Grid.Row="4" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].HealthIssues, StringFormat='Health Issues: {0}'}" FontSize="16" Grid.Row="5" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].Intelligence, StringFormat='Intelligence: {0}'}" FontSize="16" Grid.Row="5" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].SheddingLevel, StringFormat='Shedding Level: {0}'}" FontSize="16" Grid.Row="6" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].SocialNeeds, StringFormat='Social Needs: {0}'}" FontSize="16" Grid.Row="6" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].StrangerFriendly, StringFormat='Stranger Friendly: {0}'}" FontSize="16" Grid.Row="7" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].Vocalisation, StringFormat='Vocalisation: {0}'}" FontSize="16" Grid.Row="7" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].Experimental, StringFormat='Experimental: {0}'}" FontSize="16" Grid.Row="8" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].Rare, StringFormat='Rare: {0}'}" FontSize="16" Grid.Row="8" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].Rex, StringFormat='Rex: {0}'}" FontSize="16" Grid.Row="9" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].SuppressedTail, StringFormat='SuppressedTail: {0}'}" FontSize="16" Grid.Row="9" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].ShortLegs, StringFormat='ShortLegs: {0}'}" FontSize="16" Grid.Row="10" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].Hypoallergenic, StringFormat='Hypoallergenic: {0}'}" FontSize="16" Grid.Row="10" Grid.Column="1"/>
+                <Label Text="{Binding Breeds[0].Indoor, StringFormat='Indoor: {0}'}" FontSize="16" Grid.Row="11" Grid.Column="0"/>
+                <Label Text="{Binding Breeds[0].Lap, StringFormat='Lap: {0}'}" FontSize="16" Grid.Row="11" Grid.Column="1"/>
+            </Grid>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

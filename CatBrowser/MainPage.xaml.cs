@@ -1,4 +1,6 @@
 ﻿using CatBrowser.ViewModel;
+using CatBrowser.View;
+using CatBrowser.Model;
 
 namespace CatBrowser
 {
@@ -17,7 +19,22 @@ namespace CatBrowser
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await viewModel.GetCatImagesAsync();
+            await viewModel.LoadMoreCatImagesAsync();
+        }
+
+        async void GoToDetails (object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection != null && e.CurrentSelection.Count > 0)
+            {
+                CatImage selectedImage = (CatImage)e.CurrentSelection.First();
+
+                await Shell.Current.GoToAsync(nameof(Details), true, new Dictionary<string, object>
+                {
+                    { "SelectedImage", selectedImage }
+                });
+
+                ((CollectionView)sender).SelectedItem = null;
+            }
         }
     }
 
