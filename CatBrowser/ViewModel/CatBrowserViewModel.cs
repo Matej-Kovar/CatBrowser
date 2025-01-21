@@ -10,10 +10,9 @@ using System.Threading.Tasks;
 
 namespace CatBrowser.ViewModel
 {
-    public class CatBrowserViewModel : ViewModel
+    public class CatBrowserViewModel
     {
         private CatGetter CatGetter;
-        private int currentPage = 1;
         private bool isLoading = false;
 
         public ObservableCollection<CatImage> Cats { get; } = new ObservableCollection<CatImage>();
@@ -31,12 +30,15 @@ namespace CatBrowser.ViewModel
             if (isLoading) return;
 
             isLoading = true;
-            var cats = await CatGetter.GetCatImages(currentPage);
+            var cats = await CatGetter.GetCatImages();
             foreach (var cat in cats)
             {
-                Cats.Add(cat);
+                if (!Cats.Any(existingCat => existingCat.Id == cat.Id))
+                {
+                    Cats.Add(cat);
+                }
+
             }
-            currentPage++;
             isLoading = false;
         }
     }

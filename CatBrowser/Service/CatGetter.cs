@@ -15,9 +15,7 @@ namespace CatBrowser.Service
 
         HttpClient Client;
 
-        string baseUrl = "https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1";
-
-        int pageSize = 10;
+        string baseUrl = "https://api.thecatapi.com/v1/images/search?limit=5&has_breeds=1";
 
         public CatGetter ()
         {
@@ -25,9 +23,9 @@ namespace CatBrowser.Service
             Client.DefaultRequestHeaders.Add("x-api-key", "live_9hWnT76L1YlYgo92R1wPJEBxQPcmXu7udjk4KVyTA83mtXKaTMJkMo9WX6GLzD9s");
         }
 
-        public async Task<List<CatImage>> GetCatImages(int page = 1)
+        public async Task<List<CatImage>> GetCatImages()
         {
-            string url = $"{baseUrl}?limit={pageSize}&page={page}&has_breeds=1";
+            string url = baseUrl;
             HttpResponseMessage response = await Client.GetAsync(url);
 
             if (response.IsSuccessStatusCode)

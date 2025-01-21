@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CatBrowser"
     Shell.FlyoutBehavior="Flyout"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}"
     Title="CatBrowser">
 
     <ShellContent

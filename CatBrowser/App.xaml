@@ -11,11 +11,34 @@
                 <ResourceDictionary>
                     <Color x:Key="TextColorDark">#FFFFFF</Color>
                     <Color x:Key="TextColorHilight">#F06543</Color>
+                    <Color x:Key="BackgroundColorHilight">#F06543</Color>
                     <Color x:Key="TextColorLight">#000000</Color>
-                    <Color x:Key="BackgroundLight">#E0DFD5</Color>
+                    <Color x:Key="ForegroundLight">#E0DFD5</Color>
                     <Color x:Key="BackgroundDark">#1C2021</Color>
-                    <Color x:Key="ForegroundLight">#E8E9EB</Color>
+                    <Color x:Key="BackgroundLight">#E8E9EB</Color>
                     <Color x:Key="ForegroundDark">#313638</Color>
+                    <Style TargetType="local:AppShell">
+                        <Setter Property="TitleColor" Value="{StaticResource TextColorHilight}" />
+                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BackgroundDark}, Light={StaticResource BackgroundLight}}" />
+                    </Style>
+                    <Style TargetType="Label" x:Key="TextHilight">
+                        <Setter Property="TextColor" Value="{StaticResource TextColorHilight}" />
+                        <Setter Property="FontAttributes" Value="Bold" />
+                    </Style>
+                    <Shadow x:Key="CardShadow" 
+                        Opacity="0.4" 
+                        Brush="Black" 
+                        Radius="12" 
+                        Offset="4, 4" />
+                    <Style TargetType="Border" x:Key="Card">
+                        <Setter Property="Stroke" Value="Transparent" />
+                        <Setter Property="StrokeShape" Value="RoundRectangle 16" />
+                        <Setter Property="StrokeThickness" Value="0" />
+                        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ForegroundDark}, Light={StaticResource ForegroundLight}}" />
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark}, Light={StaticResource TextColorLight}}" />
+                    </Style>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
